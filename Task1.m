@@ -61,7 +61,7 @@ Kuu = A * t * Bu' * C * Bu;
 
 
 %% Define Btheta 
-Btheta = [y3-y3 y3-y1 y1-y2;x3-x2 x1-x3 x2-x1];
+Btheta = [y2-y3 y3-y1 y1-y2;x3-x2 x1-x3 x2-x1];
 
 %% Define lambda matrix
 lambda = lambda * eye(2,2);
@@ -73,7 +73,7 @@ Ktheta = Btheta' * lambda * Btheta * A *t;
 Kutheta = (A*t)/3 * Bu' * C* alfa0 * eye(3,3);
 
 %% Define the consistent load vector
-alfa = atand(a/b);
+alfa = 90-atand(a/b);
 L = sqrt(a^2 + b^2);
 eqLoad2 = (pmax*L)/6;
 Ru = [0; eqLoad2*cosd(alfa); -eqLoad2*sind(alfa)];
