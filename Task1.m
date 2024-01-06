@@ -61,7 +61,7 @@ Kuu = A * t * Bu' * C * Bu;
 
 
 %% Define Btheta 
-Btheta = [y2-y3 y3-y1 y1-y2;x3-x2 x1-x3 x2-x1];
+Btheta = (1/(2*A))*[y2-y3 y3-y1 y1-y2;x3-x2 x1-x3 x2-x1];
 
 %% Define lambda matrix
 lambda = lambda * eye(2,2);
