@@ -1,4 +1,4 @@
-%% Linear FEM - Homework 2 - Task 2
+%% Linear FEM - Homework 2 - Task 1
 % --- Author: Salih Sahbegovic
 % --- Date: 04.01.2024.
 % --- Subject: Finite Element Methods in Linear Structural Mechanics
@@ -51,7 +51,7 @@ x3 = 0; y3 = 0;
 A = a*(b+c)/2;
 
 %% Define B matrix
-Bu = (1/(2*A))*[y1-y2 y2-y3 0;0 0 x3-x2; x2-x1 x3-x2 y2-y3];
+Bu = (1/(2*A))*[y2-y3 y3-y1 0;0 0 x1-x3; x3-x2 x1-x3 y3-y1];
 
 %% Define stiffness tensor - plain strain state
 C = (E / ((1+v)*(1-2*v))) * [1-v v 0; v 1-v 0; 0 0 (1-2*v)/2];
@@ -61,7 +61,7 @@ Kuu = A * t * Bu' * C * Bu;
 
 
 %% Define Btheta 
-Btheta = [y1-y2 y2-y3 y3-y1;x2-x1 x3-x2 x1-x3];
+Btheta = [y3-y3 y3-y1 y1-y2;x3-x2 x1-x3 x2-x1];
 
 %% Define lambda matrix
 lambda = lambda * eye(2,2);
