@@ -70,13 +70,15 @@ lambda = lambda * eye(2,2);
 Ktheta = Btheta' * lambda * Btheta * A *t;
 
 %% Define reduced global coupling matrix
-Kutheta = (A*t)/3 * Bu' * C* alfa0 * eye(3,3);
+Kutheta = (A*t)/3 * Bu' * C* alfa0 * [1;1;0]*[1 1 1];
 
 %% Define the consistent load vector
 alfa = 90-atand(a/b);
 L = sqrt(a^2 + b^2);
 eqLoad2 = (pmax*L)/6;
-Ru = [0; eqLoad2*cosd(alfa); -eqLoad2*sind(alfa)];
+eqLoad1 = (pmax*L)/3;
+rLocal = [eqLoad2*cosd(alfa); -eqLoad2*sind(alfa); eqLoad1*cosd(alfa); -eqLoad1*sind(alfa)];
+Ru = [0; eqLoad2*cosd(alfa); 0];
 
 %% Static condensation
 K = [Kuu -Kutheta; zeros(3,3) Ktheta];

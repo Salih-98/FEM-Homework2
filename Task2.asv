@@ -152,12 +152,9 @@ rGlobal (1) = rGlobal(4) + rGlobal(1);
 rGlobal (2) = rGlobal(2) + rGlobal(3);
 rGlobal(4) = [];
 rGlobal(3) = [];
-Rglobal = [0; rGlobal(1); 0 ;rGlobal(2); 0];
+Rglobal = [0 rGlobal(1) 0
 %% Define displacements
-u = inv(K) * Rglobal;
-
-%% Define stresses
-Sigma = C*B1*u;
+u = inv(K) * rGlobal
 
 function B1=getReducedMatrix(B1)
 B1(:,13)=[];
